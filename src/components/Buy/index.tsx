@@ -2,7 +2,7 @@ import { Box, Modal, Typography } from "@mui/material";
 import Button from "@shared/Button";
 import { useState } from "react";
  
-interface BuyProps {
+interface IBuyProps {
   image: string;
   title: string;
   description: string;
@@ -21,7 +21,7 @@ const style = {
   p: 4,
 };
 
-const Buy = (props: BuyProps) => {
+const Buy = (props: IBuyProps) => {
 
   const [open, setOpen] = useState(false);
   

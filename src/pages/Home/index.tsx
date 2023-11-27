@@ -37,7 +37,7 @@ const Home: React.FC = () => {
             </div>
           </div>
         )}
-        <div className='flex items-center justify-center flex-col gap-20'>
+        <div className='flex items-center justify-center flex-col gap-20 pt-5'>
           <section className='w-full flex items-center justify-center'>
             <article className='flex flex-col gap-14'>
               <div className='flex gap-16'>
