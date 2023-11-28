@@ -1,14 +1,20 @@
 import ProductCard from '@components/ProductCard';
 import { Box, Modal } from '@mui/material';
 import { Input } from '@shared/Input';
-import { ICard } from 'app/(empress)/dashboard/products/page';
 import { useState } from 'react';
+
+export interface ICard {
+  img: string;
+  title: string;
+  description: string;
+  value: string;
+}
 
 interface IProductModalCardDashBoard {
   card: ICard;
 }
 
-const ProductModalCardDashBoard = ({card}: IProductModalCardDashBoard) => {
+const ProductModalCardDashBoard = ({ card }: IProductModalCardDashBoard) => {
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -36,13 +42,13 @@ const ProductModalCardDashBoard = ({card}: IProductModalCardDashBoard) => {
   return (
     <>
       <ProductCard
-        img={card.img} 
-        description={card.description} 
-        title={card.title} 
+        img={card.img}
+        description={card.description}
+        title={card.title}
         value={card.value}
         onClick={handleOpen}
       />
-      <Modal 
+      <Modal
         open={open}
         onClose={handleClose}
       >
@@ -57,7 +63,7 @@ const ProductModalCardDashBoard = ({card}: IProductModalCardDashBoard) => {
                   htmlFor="file-upload"
                   className="block text-center cursor-pointer border border-black text-black rounded py-2 px-4 "
                 >
-              Imagem
+                  Imagem
                 </label>
                 <input
                   type="file"
@@ -69,10 +75,10 @@ const ProductModalCardDashBoard = ({card}: IProductModalCardDashBoard) => {
             </div>
             <div className='flex gap-8'>
               <button className='px-5 py-3 bg-yellow-400 rounded'>
-              Editar
+                Editar
               </button>
               <button className='p-3 bg-red-500 rounded'>
-              Remover
+                Remover
               </button>
             </div>
           </div>

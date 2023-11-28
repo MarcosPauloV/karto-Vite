@@ -1,19 +1,19 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import React from "react";
+import { Link } from "react-router-dom";
 
 interface IDashboardLinkProps {
   alt: string;
   src: string;
-  href: string;
+  to: string;
   children: React.ReactNode;
 }
 
-const DashLink = ({alt, src, href, children }: IDashboardLinkProps) => {
+const DashLink: React.FC<IDashboardLinkProps> = ({alt, src, to, children }) => {
   return (
     <>
       <li>
-        <Link href={href} className='flex gap-2'>
-          <Image alt={alt} src={src} width={20} height={20} className=''/>
+        <Link to={to} className='flex gap-2'>
+          <img alt={alt} src={src} className=''/>
           {children}
         </Link>
       </li>

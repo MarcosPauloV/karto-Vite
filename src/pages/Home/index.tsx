@@ -37,24 +37,24 @@ const Home: React.FC = () => {
             </div>
           </div>
         )}
-        <div className='flex items-center justify-center flex-col gap-20 pt-5'>
+        <div className='flex items-center justify-center flex-col pt-6 gap-4'>
           <section className='w-full flex items-center justify-center'>
-            <article className='flex flex-col gap-14'>
-              <div className='flex gap-16'>
-                <div className='h-[406] flex flex-col items-center justify-center'>
-                  <p className='text-black text-lg'>Crie Seu Cardápio Digital: A Solução para Pequenos Negócios e</p>
-                  <p className='text-black text-lg'>Lanchonetes! Com nosso software intuitivo, você pode facilmente</p>
-                  <p className='text-black text-lg'>criar e gerenciar seu cardápio online. Ofereça aos seus clientes a</p>
-                  <p className='text-black text-lg'>comodidade de explorar seus pratos e sabores favoritos a</p>
-                  <p className='text-black text-lg'>qualquer momento, em qualquer lugar. Potencialize sua presença</p>
-                  <p className='text-black text-lg'>online e impulsione seu negócio gastronômico com facilidade.</p>
-                  <p className='text-black text-lg'>Monte seu cardápio digital e conquiste mais paladares!</p>
+            <article>
+              <div className='flex flex-col items-center justify-center gap-12 xl:flex-row'>
+                <div className='w-[70%] flex flex-col items-center justify-center '>
+                  <p className='text-black text-lg text-justify'>Crie Seu Cardápio Digital: A Solução para Pequenos Negócios e</p>
+                  <p className='text-black text-lg text-justify'>Lanchonetes! Com nosso software intuitivo, você pode facilmente</p>
+                  <p className='text-black text-lg text-justify'>criar e gerenciar seu cardápio online. Ofereça aos seus clientes a</p>
+                  <p className='text-black text-lg text-justify'>comodidade de explorar seus pratos e sabores favoritos a</p>
+                  <p className='text-black text-lg text-justify'>qualquer momento, em qualquer lugar. Potencialize sua presença</p>
+                  <p className='text-black text-lg text-justify'>online e impulsione seu negócio gastronômico com facilidade.</p>
+                  <p className='text-black text-lg text-justify'>Monte seu cardápio digital e conquiste mais paladares!</p>
                 </div>
-                <img src="/home-exemplo-image.svg" alt="" />
+                <img src="/home-exemplo-image.svg" alt="" className='h-[320px] w-[380px]' />
               </div>
             </article>
           </section>
-          <section className='w-[60%] mt-20'>
+          <section className='w-[50%] mt-20'>
             <h1 className='text-black text-2xl font-bold text-center'>Nossos principais sites</h1>
             <Carousel
               draggable={true}
@@ -101,8 +101,8 @@ const Home: React.FC = () => {
               </Link>
             </Carousel>
           </section>
-          <section className='mt-20 flex items-center justify-center w-[60%] gap-20'>
-            <img src="/home-exemplo-item.svg" alt="" />
+          <section className='w-[50%] flex flex-col items-center justify-center gap-12 xl:flex-row'>
+            <img src="/home-exemplo-item.svg" alt="" className='w-80' />
             <div className='text-black'>
               <h2 className='text-2xl font-bold text-center pb-4'>Principais vantagnes de se criar o cardapio conosco</h2>
               <ul>
@@ -115,12 +115,13 @@ const Home: React.FC = () => {
               </ul>
             </div>
           </section>
-          <section>
-            <Buy image='/carosel-bife.svg' />
+          <section id='plains' className='flex items-center justify-center flex-col gap-14 xl:flex-row xl:gap-4 xl:pt-10 xl:pb-16'>
+            <Buy image='/carosel-bife.svg' description='Plano para 1 empresa' title='' value={22.34} />
+            <Buy image='/carosel-bife.svg' description='Plano para 2 empresa' title='' value={22.34} />
+            <Buy image='/carosel-bife.svg' description='Plano para 3 empresa' title='' value={22.34} />
           </section>
         </div>
       </main>
-      <footer className='w-full h-32 bg-primary'></footer>
     </>
   );
 };

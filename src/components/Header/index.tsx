@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 const Header: React.FC = () => {
 
   const [visible, setVisible] = useState(true);
-  const [isOpen, setOpen] = useState(false)
+  const [isOpen, setOpen] = useState(false);
+  const [tenant, setTenant] = useState(true);
 
   useEffect(() => {
     const element = window.document.documentElement
@@ -20,6 +21,16 @@ const Header: React.FC = () => {
     })
     observer.observe(element)
   }, [])
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token')
+
+  //   if (token === null) {
+  //     setTenant(false)
+  //   } else {
+  //     setTenant(true)
+  //   }
+  // }, [])
 
   return (
     <>
@@ -37,17 +48,25 @@ const Header: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="flex gap-2 p-2">
+                <a href='#plains' className="flex gap-2 p-2">
                   <img alt="Shop" src="/shop-icon.svg" width={24} height={24} />
                   Preços
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/registrar" className="flex gap-2 p-2">
+                <Link to="/entrar" className="flex gap-2 p-2">
                   <img alt="Entrar" src="/profile-icon.svg" width={24} height={24} />
                   Entrar
                 </Link>
               </li>
+              {tenant && (
+                <li>
+                  <Link to="/tenant" className="flex gap-2 p-2">
+                    <img alt="Empresa" src="/profile-icon.svg" width={24} height={24} />
+                    Seu negocio
+                  </Link>
+                </li>
+              )}
             </ul>
           ) : (
             <>
@@ -65,17 +84,25 @@ const Header: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link to="/" className="flex gap-2 p-2">
+            <a href='#plains' className="flex gap-2 p-2">
               <img alt="Shop" src="/shop-icon.svg" width={24} height={24} />
               Preços
-            </Link>
+            </a>
           </li>
           <li>
-            <Link to="/registrar" className="flex gap-2 p-2">
+            <Link to="/entrar" className="flex gap-2 p-2">
               <img alt="Entrar" src="/profile-icon.svg" width={24} height={24} />
               Entrar
             </Link>
           </li>
+          {tenant && (
+            <li>
+              <Link to="/tenant" className="flex gap-2 p-2">
+                <img alt="Empresa" src="/profile-icon.svg" width={24} height={24} />
+                Seu negocio
+              </Link>
+            </li>
+          )}
         </ul>
       )}
     </>

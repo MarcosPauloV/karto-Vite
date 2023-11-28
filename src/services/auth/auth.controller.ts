@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 import { ForgotPasswordProps } from '@pages/ForgotPassword';
-import { LoginProps } from '@pages/Login';
 import { RegisterProps } from '@pages/Register';
+import { LoginProps } from '@pages/TenantLogin';
 
 export const login = async (payload: LoginProps) => {
   try {
@@ -84,8 +84,8 @@ export const loginUser = async (payload: LoginProps) => {
       .then((response) => {
         const token  = response.data.token_acesso;
         const bearerToken = `Bearer ${token}`;
-        localStorage.setItem('token_tenant', bearerToken);
-        window.location.href = '/';
+        localStorage.setItem('token', bearerToken);
+        window.location.href = '/cardapio/piattino';
         console.log(response.data);
       })
       .catch((error) => {

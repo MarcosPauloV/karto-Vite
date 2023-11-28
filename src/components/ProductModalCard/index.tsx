@@ -1,14 +1,20 @@
 import ProductCard from '@components/ProductCard';
 import { Box, Modal } from '@mui/material';
-import { ICard } from 'app/(empress)/dashboard/products/page';
-import Image from 'next/image';
 import { useState } from 'react';
+
+
+export interface ICard {
+  img: string;
+  title: string;
+  description: string;
+  value: string;
+}
 
 interface IProductModalCard {
   card: ICard;
 }
 
-const ProductModalCard = ({card}: IProductModalCard) => {
+const ProductModalCard = ({ card }: IProductModalCard) => {
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -29,20 +35,20 @@ const ProductModalCard = ({card}: IProductModalCard) => {
   return (
     <>
       <ProductCard
-        img={card.img} 
-        description={card.description} 
-        title={card.title} 
+        img={card.img}
+        description={card.description}
+        title={card.title}
         value={card.value}
         onClick={handleOpen}
       />
-      <Modal 
+      <Modal
         open={open}
         onClose={handleClose}
       >
         <Box sx={style}>
           <div className='w-full h-full flex flex-col items-center justify-center gap-3'>
             <div className='w-40 flex items-center justify-center flex-col gap-2'>
-              <Image alt='' src={card.img} width={123} height={123}/>
+              <img alt='' src={card.img} width={123} height={123} />
               <p className='text-black'>{card.title}</p>
               <p className='text-black'>{card.description}</p>
               <p className='text-black'>{card.value}</p>
